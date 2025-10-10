@@ -128,3 +128,6 @@ function shuffle(arr){
     buildSections();
 
 
+// add an update estimate on the state
+function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textContent = mins*state.sections.length; }
+    timeSelect.addEventListener('change', updateEstimate); updateEstimate();
