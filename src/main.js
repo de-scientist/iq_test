@@ -149,3 +149,9 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
           const rest = sec.questions.filter(q=>!mixed.includes(q));
           shuffle(rest); mixed.push(...rest);
         }
+
+        // final mild shuffle to avoid patterns but preserve difficulty spread
+        for(let i=0;i<3;i++){ shuffle(mixed); }
+        state.orderMap[sec.name] = mixed.map(q=>q.id);
+      }
+    }

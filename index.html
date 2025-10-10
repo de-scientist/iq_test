@@ -119,11 +119,6 @@
     */
 
    
-        // final mild shuffle to avoid patterns but preserve difficulty spread
-        for(let i=0;i<3;i++){ shuffle(mixed); }
-        state.orderMap[sec.name] = mixed.map(q=>q.id);
-      }
-    }
 
     function startDemo(){ state.perSectionMinutes=1; startTest(); }
     function startTest(){ if(state.started) return; state.perSectionMinutes = parseInt(timeSelect.value); state.started=true; state.currentSectionIndex=0; state.answers={}; setup.style.display='none'; quiz.style.display='block'; status.textContent='In progress'; stratifiedShuffleQuestions(); gotoSection(0);}    
