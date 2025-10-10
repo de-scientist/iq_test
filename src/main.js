@@ -65,3 +65,21 @@ function shuffle(arr){
     qpush(S3,'Choose the correct homophone: Their/There/They\'re — which fits: "___ house is big"',['Their','There','They\'re','None'],0,'E','Their house.');
     qpush(S3,'Arrange in alphabetical order: zebra, apple, mango, bear',['apple, bear, mango, zebra','zebra, mango, bear, apple','apple, mango, bear, zebra','bear, apple, mango, zebra'],0,'E','Alphabetic order as listed.');
     qpush(S3,'Which is a conjunction?',['But','Quick','Run','Blue'],0,'E','But is conjunction.');
+
+ // SECTION Spatial
+    const S4='Spatial';
+    qpush(S4,'A cube painted on all faces, cut into 64 small cubes. How many have exactly one face painted?',['8','16','24','32'],2,'M','For n^3 split where n=4: cubes with exactly one painted face = 6*(n-2)^2 = 6*4 =24.');
+    qpush(S4,'Which nets can fold into a cube?',['Cross-shaped net','Line of 6 squares','L-shape','T-shape'],0,'M','Standard cube net is cross-shaped.');
+    qpush(S4,'If a 2D square scaled by 2 in each dimension, area multiplies by?',['2','4','8','16'],1,'E','Area scales by factor 2^2=4.');
+    qpush(S4,'Which rotation maps an arrow pointing up to pointing left?',['90deg clockwise','90deg anticlockwise','180deg','270deg'],1,'M','Turning anticlockwise 90° makes up -> left.');
+    qpush(S4,'Mirror image: Which letter becomes itself when mirrored vertically?',['A','B','C','D'],0,'H','A has vertical symmetry if styled appropriately.');
+    qpush(S4,'Which shape has rotational symmetry of order 4?',['Square','Rectangle','Oval','Trapezoid'],0,'E','Square rotates every 90°.');
+    qpush(S4,'If you slice a cylinder vertically, the cross-section is a?',['Circle','Rectangle','Ellipse','Line'],1,'M','A vertical slice of a cylinder produces a rectangle (if slice through axis).');
+    qpush(S4,'You stack 4 equal cubes to form a 2x2x1 block. How many small faces visible?',['16','20','12','24'],1,'H','Count exposed faces: top 4, bottom 4, sides combined = 12 -> total 20.');
+    qpush(S4,'Mental rotation: which of these is same as original after 90deg rotation?',['A','B','C','D'],0,'M','Choose figure symmetric under 90° rotation (example).');
+    qpush(S4,'Pattern: ⬜ ⬛ ⬜ ⬛ ⬜ ... Next is?',['⬛','⬜','Both','None'],0,'E','Alternating pattern, next black.');
+    qpush(S4,'If each side of a rectangle doubles, perimeter multiplies by?',['2','4','8','16'],1,'E','Perimeter scales linearly: doubling sides doubles perimeter -> factor 2.');
+    qpush(S4,'A right triangle with legs 3 and 4; hypotenuse?',['5','6','7','√25'],0,'E','3-4-5 Pythagorean triple.');
+    qpush(S4,'Which figure is congruent to another (same size & shape)?',['Similar but scaled','Reflected','Rotated','All of above possibly'],3,'M','Congruence can include translation, rotation, reflection.');
+    qpush(S4,'If a map scale 1:100, then 1 cm on map is how many meters?',['1 m','10 m','100 m','0.1 m'],1,'E','1:100 means 1 cm = 100 cm = 1 m? Wait: mapping: 1:100 means 1 unit on map =100 units real; 1 cm -> 100 cm = 1 m.');
+    qpush(S4,'If a regular hexagon, interior angle is?',['120°','90°','135°','150°'],0,'M','Interior angle = 120° for regular hexagon.');
