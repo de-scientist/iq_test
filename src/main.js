@@ -1,3 +1,35 @@
+//add DOM elements
+ const startBtn=document.getElementById('startBtn');
+    const startBtn2=document.getElementById('startBtn2');
+    const demoBtn=document.getElementById('demoBtn');
+    const timeSelect=document.getElementById('timeSelect');
+    const est=document.getElementById('est');
+    const status=document.getElementById('status');
+    const setup=document.getElementById('setup');
+    const quiz=document.getElementById('quiz');
+    const questionArea=document.getElementById('questionArea');
+    const secIndex=document.getElementById('secIndex');
+    const secName=document.getElementById('secName');
+    const secDesc=document.getElementById('secDesc');
+    const timerEl=document.getElementById('timer');
+    const progBar=document.getElementById('progBar');
+    const prevBtn=document.getElementById('prevBtn');
+    const nextBtn=document.getElementById('nextBtn');
+    const submitSectionBtn=document.getElementById('submitSectionBtn');
+    const resultsEl=document.getElementById('results');
+    const summaryEl=document.getElementById('summary');
+    const breakdownEl=document.getElementById('breakdown');
+    const reviewList=document.getElementById('reviewList');
+    const downloadCSV=document.getElementById('downloadCSV');
+    const printCert=document.getElementById('printCert');
+    const retry=document.getElementById('retry');
+    const cert=document.getElementById('cert');
+    const certName=document.getElementById('certName');
+    const certDate=document.getElementById('certDate');
+    const certIQ=document.getElementById('certIQ');
+    const certDetail=document.getElementById('certDetail');
+
+
 //add a shuffle function
 function shuffle(arr){
       for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
@@ -94,3 +126,5 @@ function shuffle(arr){
       state.sections = Object.keys(map).map(name=>({name, questions: map[name]}));
     }
     buildSections();
+
+
