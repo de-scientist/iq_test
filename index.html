@@ -118,9 +118,6 @@
        - printable certificate via window.print()
     */
 
-      
-
-    function gotoSection(idx){ clearInterval(state.timerInterval); state.currentSectionIndex=idx; const sec = state.sections[idx]; secIndex.textContent = (idx+1); secName.textContent = sec.name + ' (' + sec.questions.length + ' q)'; secDesc.textContent = `${sec.questions.length} questions — mixed difficulty.`; state.remaining = state.perSectionMinutes*60; updateTimerDisplay(); state.timerInterval = setInterval(()=>{ state.remaining--; updateTimerDisplay(); if(state.remaining<=0){ clearInterval(state.timerInterval); autoSubmitSection(); } },1000); renderQuestion(0); updateProgressBar(); }
 
     function updateTimerDisplay(){ const m = Math.floor(state.remaining/60).toString().padStart(2,'0'); const s = (state.remaining%60).toString().padStart(2,'0'); timerEl.textContent = `${m}:${s}`; }
 

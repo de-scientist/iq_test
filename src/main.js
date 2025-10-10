@@ -156,7 +156,9 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
       }
     }
 
-    
 //add a function to do a demo test
     function startDemo(){ state.perSectionMinutes=1; startTest(); }
     function startTest(){ if(state.started) return; state.perSectionMinutes = parseInt(timeSelect.value); state.started=true; state.currentSectionIndex=0; state.answers={}; setup.style.display='none'; quiz.style.display='block'; status.textContent='In progress'; stratifiedShuffleQuestions(); gotoSection(0);} 
+
+//add a time interval to limit time used in a section
+        function gotoSection(idx){ clearInterval(state.timerInterval); state.currentSectionIndex=idx; const sec = state.sections[idx]; secIndex.textContent = (idx+1); secName.textContent = sec.name + ' (' + sec.questions.length + ' q)'; secDesc.textContent = `${sec.questions.length} questions — mixed difficulty.`; state.remaining = state.perSectionMinutes*60; updateTimerDisplay(); state.timerInterval = setInterval(()=>{ state.remaining--; updateTimerDisplay(); if(state.remaining<=0){ clearInterval(state.timerInterval); autoSubmitSection(); } },1000); renderQuestion(0); updateProgressBar(); }
