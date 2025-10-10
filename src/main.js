@@ -46,3 +46,22 @@ function shuffle(arr){
     qpush(S2,'Compound interest: $100 at 10% per year compounded annually for 2 years = ?',['$121','$120','$110','$100'],0,'E','100*1.1^2=121');
     qpush(S2,'Which gives largest value: 2^5,5^2,3^3,4^3?',['32','25','27','64'],3,'M','4^3 is 64, largest.');
     qpush(S2,'If a=b and b=c, then?',['a=c','a!=c','a>b','Cannot tell'],0,'E','Transitive equality.');
+
+
+ // SECTION Verbal
+    const S3='Verbal';
+    qpush(S3,'HAND is to GLOVE as FOOT is to:',['Shoe','Sock','Toe','Leg'],0,'E','Glove covers hand; shoe covers foot.');
+    qpush(S3,'Most similar to ABUNDANT:',['Rare','Scarce','Plentiful','Empty'],2,'E','Plentiful is synonym.');
+    qpush(S3,'Bird : Fly :: Fish : ?',['Water','Swim','Scale','River'],1,'E','Fish swim.');
+    qpush(S3,'Choose antonym of MALICE:',['Kindness','Cruelty','Hatred','Spite'],0,'M','Malice opposite is kindness.');
+    qpush(S3,'Complete: PREPARE is to READINESS as STUDY is to ?',['Knowledge','Examination','Skill','Learning'],3,'M','Study leads to learning.');
+    qpush(S3,'Which word is a synonym of QUICK?',['Rapid','Slow','Late','Tardy'],0,'E','Rapid=quick.');
+    qpush(S3,'Find the odd word: Apple, Orange, Carrot, Banana',['Apple','Orange','Carrot','Banana'],2,'E','Carrot is a vegetable.');
+    qpush(S3,'If "all roses are flowers" and "some flowers fade quickly", can we say "some roses fade quickly"?',['Yes','No','Sometimes','Cannot determine'],3,'H','We cannot be sure the subset overlaps.');
+    qpush(S3,'Analogies: Pen is to Write as Brush is to ?',['Paint','Draw','Sketch','Colour'],0,'E','Brush is used to paint.');
+    qpush(S3,'Which completes the proverb: A stitch in time saves ___',['Nine','Money','Time','Seven'],0,'M','Traditional proverb: saves nine.');
+    qpush(S3,'Select correct plural: Analysis -> ?',['Analysises','Analyses','Analysii','Analysi'],1,'M','Analyses is plural.');
+    qpush(S3,'Meaning of archaic "erstwhile"?',['Soon','Formerly','Always','Never'],1,'H','Erstwhile means formerly.');
+    qpush(S3,'Choose the correct homophone: Their/There/They\'re — which fits: "___ house is big"',['Their','There','They\'re','None'],0,'E','Their house.');
+    qpush(S3,'Arrange in alphabetical order: zebra, apple, mango, bear',['apple, bear, mango, zebra','zebra, mango, bear, apple','apple, mango, bear, zebra','bear, apple, mango, zebra'],0,'E','Alphabetic order as listed.');
+    qpush(S3,'Which is a conjunction?',['But','Quick','Run','Blue'],0,'E','But is conjunction.');
