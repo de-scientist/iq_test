@@ -223,6 +223,7 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
       printCert.onclick = ()=>{
          // fill certificate with participant data then print
         certName.textContent = `Name: ${prompt('Enter name for certificate (leave blank for Participant)') || 'Participant'}`; certDate.textContent = `Completed: ${new Date().toLocaleString()}`; window.print(); };
-      retry.onclick = ()=>{ // reshuffle and restart
+      retry.onclick = ()=>{
+         // reshuffle and restart
         resultsEl.style.display='none'; setup.style.display='block'; status.textContent='Not started'; stratifiedShuffleQuestions(); }
     }
