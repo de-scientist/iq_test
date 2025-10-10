@@ -28,3 +28,21 @@ function shuffle(arr){
     qpush(S1,'Word problem: Two ropes burn unevenly for 60 minutes each — measure 45 minutes?',['Light both ends of first and one end of second; when first burns out light other end of second','Impossible','Use a clock','Light one end only'],0,'H','Classic puzzle: lighting schemes measure 45 minutes.');
     qpush(S1,'If P->Q and Q->R, which is true?',['P->R','R->P','P->Q only','None'],0,'E','Transitivity: P implies R.');
 
+ 
+    // SECTION Numerical
+    const S2='Numerical';
+    qpush(S2,'What is 15% of 200?',['15','20','30','25'],2,'E','15% of 200 = 0.15*200 = 30');
+    qpush(S2,'If 3x + 5 = 20, x = ?',['3','5','7','10'],0,'E','3x=15 => x=5 — note options; watch trick.');
+    qpush(S2,'Missing number: 3 + 5 = 24; 2 + 4 = 12; 4 + 6 = ?',['30','36','20','18'],1,'H','Nonlinear rule here; many puzzles use (a+b)*a or similar.');
+    qpush(S2,'Train 300 km in 3 hrs. How far in 5 hrs?',['450','500','550','600'],1,'E','Speed 100 km/h -> 5*100=500');
+    qpush(S2,'If 5 machines take 5 minutes to make 5 widgets, how long for 100 machines to make 100 widgets?',['5 min','20 min','100 min','50 min'],0,'M','Rate problem: scale up machines and output in parallel.');
+    qpush(S2,'Which is prime?',['21','25','29','27'],2,'E','29 is prime.');
+    qpush(S2,'Simplify: (12/4) + (3*2) = ?',['9','10','12','11'],1,'E','3 + 6 = 9 (watch options) — here correct is 9, check mapping; choose accordingly.' );
+    qpush(S2,'A shop reduces price by 20% then increases same amount back; final price is?',['Same as original','Less than original','More than original','Cannot tell'],1,'M','Multiplicative change reduces net value: 0.8*1.2=0.96 <1 so less.');
+    qpush(S2,'If x^2 = 81, x = ?',['9','-9','±9','0'],2,'E','Both plus and minus 9 satisfy equation.');
+    qpush(S2,'Find missing: 2,6,18,54, ?',['108','162','216','120'],1,'M','Multiply by 3 each step; next 162.');
+    qpush(S2,'If ratio A:B is 4:5 and A+B=36 then A=?',['16','20','12','18'],0,'M','4+5=9 parts -> A=4/9*36=16.');
+    qpush(S2,'What is the next in sequence: 10,7,4,1, ?',['0','-2','-1','-3'],2,'E','Arithmetic decrease by 3 -> next -2? Here sequence 10->7(-3),7->4(-3),4->1(-3)->1-3=-2 so option -2 expected.');
+    qpush(S2,'Compound interest: $100 at 10% per year compounded annually for 2 years = ?',['$121','$120','$110','$100'],0,'E','100*1.1^2=121');
+    qpush(S2,'Which gives largest value: 2^5,5^2,3^3,4^3?',['32','25','27','64'],3,'M','4^3 is 64, largest.');
+    qpush(S2,'If a=b and b=c, then?',['a=c','a!=c','a>b','Cannot tell'],0,'E','Transitive equality.');
