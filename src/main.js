@@ -132,7 +132,7 @@ function shuffle(arr){
 function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textContent = mins*state.sections.length; }
     timeSelect.addEventListener('change', updateEstimate); updateEstimate();
 
- // Stratified shuffle: keep difficulty mix by shuffling then grouping easy/medium/hard
+ // Stratified shuffle: keep difficulty mix by shuffling then grouping easy/medium/hard questions
     function stratifiedShuffleQuestions(){
       state.orderMap = {};
       for(const sec of state.sections){
@@ -140,3 +140,6 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
         const med = sec.questions.filter(q=>q.difficulty==='M');
         const hard = sec.questions.filter(q=>q.difficulty==='H');
         shuffle(easy); shuffle(med); shuffle(hard);
+
+   // interleave: M,H,E to create mix, or simple concat M,H,E then shuffle again lightly
+        const mixed = [].concat(med.slice(0,5), hard.slice(0,5), easy.slice(0,5));
