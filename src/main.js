@@ -155,3 +155,8 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
         state.orderMap[sec.name] = mixed.map(q=>q.id);
       }
     }
+
+    
+//add a function to do a demo test
+    function startDemo(){ state.perSectionMinutes=1; startTest(); }
+    function startTest(){ if(state.started) return; state.perSectionMinutes = parseInt(timeSelect.value); state.started=true; state.currentSectionIndex=0; state.answers={}; setup.style.display='none'; quiz.style.display='block'; status.textContent='In progress'; stratifiedShuffleQuestions(); gotoSection(0);} 
