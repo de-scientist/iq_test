@@ -205,3 +205,8 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
       const raw = correctCount; const N = QUESTIONS.length; const p = 0.5; const meanRaw = N*p; const sdRaw = Math.sqrt(N*p*(1-p)); const z = (raw - meanRaw) / sdRaw; const iq = Math.round(100 + 15*z);
 
       summaryEl.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center"><div><strong>Raw score:</strong> ${raw} / ${N}</div><div><strong>Calibrated IQ estimate:</strong> ${iq}</div></div><div class="small" style="margin-top:6px">Calibration note: estimate derived from raw score using a binomial mean/sd model (p=0.5). This produces a normative-like IQ mapping for practice only.</div>`;
+
+       // display a breakdown of results via a html table
+      let html=`<table><thead><tr><th>Section</th><th>Correct</th><th>Total</th><th>Percent</th></tr></thead><tbody>`;
+      for(const k of Object.keys(perSectionScores)){ const o=perSectionScores[k]; const pct=Math.round((o.correct/o.total)*100); html+=`<tr><td>${k}</td><td>${o.correct}</td><td>${o.total}</td><td>${pct}%</td></tr>`; }
+      html+=`</tbody></table>`; breakdownEl.innerHTML=html;
