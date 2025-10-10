@@ -234,3 +234,8 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
           const esc = s=>('"'+String(s).replace(/"/g,'""')+'"'); rows.push([q.id,q.section,esc(q.q),(chosen===undefined?'':chosen),esc(chosenLabel),q.a,esc(correctLabel),q.difficulty,esc(q.expl)].join(',')); } }
       rows.push(['RawScore',raw,'CalibratedIQ',iq].join(',')); return rows.join('
 '); }
+
+ // wire start the buttons
+    document.getElementById('startBtn').addEventListener('click', startTest);
+    document.getElementById('startBtn2').addEventListener('click', startTest);
+    demoBtn.addEventListener('click', startDemo);
