@@ -239,3 +239,7 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
     document.getElementById('startBtn').addEventListener('click', startTest);
     document.getElementById('startBtn2').addEventListener('click', startTest);
     demoBtn.addEventListener('click', startDemo);
+
+    // add initial preview
+    function initialPreview(){ secIndex.textContent='—'; secName.textContent='Preview'; secDesc.textContent='Pick timings and start.'; }
+    initialPreview();
