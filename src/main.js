@@ -214,3 +214,6 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
       // review list with explanations
       let rhtml=''; for(const sec of state.sections){ const order = state.orderMap[sec.name]; for(let i=0;i<order.length;i++){ const qid=order[i]; const q=QUESTIONS.find(x=>x.id===qid); const chosen=state.answers[q.id]; const isCorrect = chosen===q.a; rhtml+=`<div style="padding:10px;border-bottom:1px solid rgba(0,0,0,0.06)"><div style="font-weight:700">(${q.section}) Q${q.id}</div><div class="small" style="margin-top:4px">${q.q}</div><div style="margin-top:6px">Your: <strong style="color:${isCorrect? 'var(--success)':'var(--danger)'}">${chosen===undefined? '—' : String.fromCharCode(65+chosen)+'. '+q.opts[chosen]}</strong> — Correct: <strong>${String.fromCharCode(65+q.a)}. ${q.opts[q.a]}</strong></div><div class="small" style="margin-top:6px">Explanation: ${q.expl || '—'}</div></div>`; } }
       reviewList.innerHTML = rhtml;
+
+       // prepare certificate values
+      const name = 'Participant'; const date = new Date().toLocaleString(); certName.textContent = `Name: ${name}`; certDate.textContent = `Completed: ${date}`; certIQ.textContent = `${iq}`; certDetail.textContent = `Raw score: ${raw} / ${N}`;
