@@ -220,7 +220,8 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
 
          // wire CSV and print
       downloadCSV.onclick = ()=>{ const csv = buildCSV(raw,iq); const blob = new Blob([csv],{type:'text/csv'}); const url = URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='iq_results.csv'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url); };
-      printCert.onclick = ()=>{ // fill certificate with participant data then print
+      printCert.onclick = ()=>{
+         // fill certificate with participant data then print
         certName.textContent = `Name: ${prompt('Enter name for certificate (leave blank for Participant)') || 'Participant'}`; certDate.textContent = `Completed: ${new Date().toLocaleString()}`; window.print(); };
       retry.onclick = ()=>{ // reshuffle and restart
         resultsEl.style.display='none'; setup.style.display='block'; status.textContent='Not started'; stratifiedShuffleQuestions(); }
