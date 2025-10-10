@@ -1,114 +1,198 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>60-question Calibrated IQ Assessment — Self-marking</title>
-<link rel="stylesheet" href="./src/style.css">
-</head>
-<body>
-  <div class="app card" id="app">
-    <header>
-      <div style="width:52px;height:52px;border-radius:12px;background:linear-gradient(180deg,#04293a,#06304a);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--accent)">IQ</div>
-      <div>
-        <h1>60-question Calibrated IQ Assessment — Self-marking</h1>
-        <div class="small">Now with normed-scale IQ calibration, printable certificate (PDF via Print), per-user CSV export, randomized timed order, and expanded explanations.</div>
-      </div>
-    </header>
-
-    <div class="meta" style="margin-top:12px">
-      <div style="display:flex;gap:8px;align-items:center">
-        <div class="tag">60 Questions</div>
-        <div class="tag">4 Sections</div>
-        <div class="tag">Calibrated IQ</div>
-      </div>
-      <div class="controls">
-        <div class="small">Status: <strong id="status">Not started</strong></div>
-        <button id="startBtn">Start assessment</button>
-      </div>
-    </div>
-
-    <div id="setup" class="start-area">
-      <div class="card" style="padding:12px">
-        <h3>How this works</h3>
-        <ol class="small" style="margin:8px 0 0 16px">
-          <li>Four sections (15 q each): Logic, Numerical, Verbal, Spatial.</li>
-          <li>Set per-section time; questions are shuffled by difficulty within each section.</li>
-          <li>On finish you get a calibrated IQ estimate (normed using binomial model), detailed breakdown, CSV export, and printable certificate.</li>
-        </ol>
-        <p class="small" style="margin-top:8px">This remains a practice tool, not a clinical instrument. Calibration approximates population norms for learning purposes.</p>
-      </div>
-
-      <div class="card" style="padding:12px">
-        <div class="small">Choose timings (minutes)</div>
-        <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
-          <label class="small">Per-section:</label>
-          <select id="timeSelect">
-            <option value="10">10</option>
-            <option value="12">12</option>
-            <option value="15" selected>15</option>
-            <option value="20">20</option>
-          </select>
-          <div class="small" style="margin-left:auto">Estimated total: <span id="est">60</span> min</div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>60-question Calibrated IQ Assessment — Self-marking</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div class="app card" id="app">
+      <header>
+        <div
+          style="
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: linear-gradient(180deg, #04293a, #06304a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--accent);
+          "
+        >
+          IQ
         </div>
-
-        <div style="margin-top:12px;display:flex;gap:8px">
-          <button id="startBtn2">Begin now</button>
-          <button class="ghost" id="demoBtn">Demo (short)</button>
-        </div>
-      </div>
-    </div>
-
-    <div id="quiz" class="quiz-area" style="display:none">
-      <div class="section-title">
         <div>
-          <div class="small">Section <span id="secIndex">1</span> of 4</div>
-          <h2 id="secName">Logic — 15 q</h2>
-          <div class="small" id="secDesc">Timed. Questions are mixed by difficulty.</div>
+          <h1>60-question Calibrated IQ Assessment — Self-marking</h1>
+          <div class="small">
+            Now with normed-scale IQ calibration, printable certificate (PDF via
+            Print), per-user CSV export, randomized timed order, and expanded
+            explanations.
+          </div>
         </div>
-        <div style="text-align:right">
-          <div class="timer" id="timer">15:00</div>
-          <div style="margin-top:8px" class="progress" id="globalProg" style="width:240px"><i id="progBar"></i></div>
+      </header>
+
+      <div class="meta" style="margin-top: 12px">
+        <div style="display: flex; gap: 8px; align-items: center">
+          <div class="tag">60 Questions</div>
+          <div class="tag">4 Sections</div>
+          <div class="tag">Calibrated IQ</div>
+        </div>
+        <div class="controls">
+          <div class="small">
+            Status: <strong id="status">Not started</strong>
+          </div>
+          <button id="startBtn">Start assessment</button>
         </div>
       </div>
 
-      <div id="questionArea"></div>
+      <div id="setup" class="start-area">
+        <div class="card" style="padding: 12px">
+          <h3>How this works</h3>
+          <ol class="small" style="margin: 8px 0 0 16px">
+            <li>
+              Four sections (15 q each): Logic, Numerical, Verbal, Spatial.
+            </li>
+            <li>
+              Set per-section time; questions are shuffled by difficulty within
+              each section.
+            </li>
+            <li>
+              On finish you get a calibrated IQ estimate (normed using binomial
+              model), detailed breakdown, CSV export, and printable certificate.
+            </li>
+          </ol>
+          <p class="small" style="margin-top: 8px">
+            This remains a practice tool, not a clinical instrument. Calibration
+            approximates population norms for learning purposes.
+          </p>
+        </div>
 
-      <div class="nav" style="margin-top:10px">
-        <button id="prevBtn">Previous</button>
-        <button id="nextBtn">Next</button>
-        <button id="submitSectionBtn" style="margin-left:auto;background:#ef4444;color:white">Submit section</button>
+        <div class="card" style="padding: 12px">
+          <div class="small">Choose timings (minutes)</div>
+          <div
+            style="
+              display: flex;
+              gap: 8px;
+              align-items: center;
+              margin-top: 8px;
+            "
+          >
+            <label class="small">Per-section:</label>
+            <select id="timeSelect">
+              <option value="10">10</option>
+              <option value="12">12</option>
+              <option value="15" selected>15</option>
+              <option value="20">20</option>
+            </select>
+            <div class="small" style="margin-left: auto">
+              Estimated total: <span id="est">60</span> min
+            </div>
+          </div>
+
+          <div style="margin-top: 12px; display: flex; gap: 8px">
+            <button id="startBtn2">Begin now</button>
+            <button class="ghost" id="demoBtn">Demo (short)</button>
+          </div>
+        </div>
       </div>
+
+      <div id="quiz" class="quiz-area" style="display: none">
+        <div class="section-title">
+          <div>
+            <div class="small">Section <span id="secIndex">1</span> of 4</div>
+            <h2 id="secName">Logic — 15 q</h2>
+            <div class="small" id="secDesc">
+              Timed. Questions are mixed by difficulty.
+            </div>
+          </div>
+          <div style="text-align: right">
+            <div class="timer" id="timer">15:00</div>
+            <div
+              style="margin-top: 8px"
+              class="progress"
+              id="globalProg"
+              style="width: 240px"
+            >
+              <i id="progBar"></i>
+            </div>
+          </div>
+        </div>
+
+        <div id="questionArea"></div>
+
+        <div class="nav" style="margin-top: 10px">
+          <button id="prevBtn">Previous</button>
+          <button id="nextBtn">Next</button>
+          <button
+            id="submitSectionBtn"
+            style="margin-left: auto; background: #ef4444; color: white"
+          >
+            Submit section
+          </button>
+        </div>
+      </div>
+
+      <div id="results" style="display: none" class="results">
+        <h3>Results</h3>
+        <div id="summary"></div>
+        <div id="breakdown" style="margin-top: 8px"></div>
+        <div
+          style="margin-top: 12px; display: flex; gap: 8px; align-items: center"
+        >
+          <button id="downloadCSV">Download CSV (results)</button>
+          <button id="printCert">Generate Printable Certificate</button>
+          <button id="retry" class="ghost">Retry (reshuffle)</button>
+        </div>
+
+        <div style="margin-top: 12px" class="review">
+          <h4>Review answers (expand for explanations)</h4>
+          <div
+            id="reviewList"
+            style="max-height: 360px; overflow: auto; padding-right: 6px"
+          ></div>
+        </div>
+      </div>
+
+      <div class="cert" id="cert">
+        <div style="text-align: center; margin-bottom: 12px">
+          <h2>Certificate of Completion</h2>
+          <div class="small">60-question Calibrated IQ Assessment</div>
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+          "
+        >
+          <div>
+            <strong id="certName">Name: —</strong>
+            <div class="small" id="certDate"></div>
+          </div>
+          <div style="text-align: right">
+            <div style="font-size: 28px; font-weight: 800" id="certIQ">
+              IQ —
+            </div>
+            <div class="small" id="certDetail">Score —</div>
+          </div>
+        </div>
+        <div style="margin-top: 18px" class="small">
+          This certificate reflects completion of a timed, self-administered
+          practice assessment and presents a calibrated estimate based on raw
+          performance against a binomial normative model. For official
+          evaluation consult a licensed psychologist.
+        </div>
+      </div>
+
+      <footer style="margin-top: 12px" class="small">
+        Built for practice & learning. — De-Scientist
+      </footer>
     </div>
 
-    <div id="results" style="display:none" class="results">
-      <h3>Results</h3>
-      <div id="summary"></div>
-      <div id="breakdown" style="margin-top:8px"></div>
-      <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
-        <button id="downloadCSV">Download CSV (results)</button>
-        <button id="printCert">Generate Printable Certificate</button>
-        <button id="retry" class="ghost">Retry (reshuffle)</button>
-      </div>
-
-      <div style="margin-top:12px" class="review">
-        <h4>Review answers (expand for explanations)</h4>
-        <div id="reviewList" style="max-height:360px;overflow:auto;padding-right:6px"></div>
-      </div>
-    </div>
-
-    <div class="cert" id="cert">
-      <div style="text-align:center;margin-bottom:12px"><h2>Certificate of Completion</h2><div class="small">60-question Calibrated IQ Assessment</div></div>
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
-        <div><strong id="certName">Name: —</strong><div class="small" id="certDate"></div></div>
-        <div style="text-align:right"><div style="font-size:28px;font-weight:800" id="certIQ">IQ —</div><div class="small" id="certDetail">Score —</div></div>
-      </div>
-      <div style="margin-top:18px" class="small">This certificate reflects completion of a timed, self-administered practice assessment and presents a calibrated estimate based on raw performance against a binomial normative model. For official evaluation consult a licensed psychologist.</div>
-    </div>
-
-    <footer style="margin-top:12px" class="small">Built for practice & learning. — De-Scientist</footer>
-  </div>
-
-  <script type="module" src="./src/main.js"></script>
-</body>
+    <script type="module" src="./src/main.js"></script>
+  </body>
 </html>

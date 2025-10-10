@@ -1,34 +1,196 @@
-  
-    :root{--bg:#071428;--card:#071827;--muted:#94a3b8;--accent:#7dd3fc;--success:#16a34a;--danger:#ef4444}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#041226,#071428);color:#e6eef8;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-    .app{width:100%;max-width:1150px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:16px;box-shadow:0 10px 40px rgba(2,6,23,0.6)}
-    header{display:flex;gap:12px;align-items:center}
-    header h1{margin:0;font-size:1.2rem}
-    .meta{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
-    .tag{background:rgba(255,255,255,0.02);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:.85rem}
-    .start-area{display:grid;grid-template-columns:1fr 320px;gap:12px;margin-top:12px}
+:root {
+  --bg: #071428;
+  --card: #071827;
+  --muted: #94a3b8;
+  --accent: #7dd3fc;
+  --success: #16a34a;
+  --danger: #ef4444;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    system-ui,
+    Segoe UI,
+    Roboto,
+    Arial;
+  background: linear-gradient(180deg, #041226, #071428);
+  color: #e6eef8;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.app {
+  width: 100%;
+  max-width: 1150px;
+}
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 10px 40px rgba(2, 6, 23, 0.6);
+}
+header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+header h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+.tag {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.start-area {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 12px;
+  margin-top: 12px;
+}
 
-    .controls{display:flex;gap:8px;align-items:center}
-    button{background:linear-gradient(90deg,var(--accent),#38bdf8);border:0;padding:8px 12px;border-radius:8px;font-weight:700;cursor:pointer;color:#04263a}
-    button.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--accent)}
+.controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+button {
+  background: linear-gradient(90deg, var(--accent), #38bdf8);
+  border: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #04263a;
+}
+button.ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--accent);
+}
 
-    .quiz-area{margin-top:14px}
-    .section-title{display:flex;justify-content:space-between;align-items:center}
-    .timer{background:rgba(255,255,255,0.02);padding:6px 8px;border-radius:8px;font-weight:700}
-    .question{margin-top:10px;padding:12px;background:rgba(255,255,255,0.015);border-radius:10px}
-    .options{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-    .opt{padding:10px;border-radius:8px;cursor:pointer;border:1px solid rgba(255,255,255,0.03)}
-    .opt.selected{outline:2px solid rgba(125,211,252,0.18);background:rgba(125,211,252,0.03)}
-    .nav{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
-    .progress{height:10px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden}
-    .progress > i{display:block;height:100%;background:linear-gradient(90deg,#22c55e,#7dd3fc);width:0%}
-    .results{margin-top:12px;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
-    table{width:100%;border-collapse:collapse}
-    td,th{padding:8px;text-align:left}
-    .small{font-size:.85rem;color:var(--muted)}
-    .cert{display:none;padding:24px;background:white;color:#001;max-width:720px;margin:0 auto;border-radius:8px}
-    @media(max-width:900px){.start-area{grid-template-columns:1fr} .options{grid-template-columns:1fr}}
-    @media print{body{background:white;color:#001} .app>*:not(.cert){display:none} .cert{display:block}}
-  
+.quiz-area {
+  margin-top: 14px;
+}
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.timer {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+.question {
+  margin-top: 10px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.015);
+  border-radius: 10px;
+}
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+.opt {
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+.opt.selected {
+  outline: 2px solid rgba(125, 211, 252, 0.18);
+  background: rgba(125, 211, 252, 0.03);
+}
+.nav {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.progress {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress > i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #7dd3fc);
+  width: 0%;
+}
+.results {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+td,
+th {
+  padding: 8px;
+  text-align: left;
+}
+.small {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.cert {
+  display: none;
+  padding: 24px;
+  background: white;
+  color: #001;
+  max-width: 720px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+@media (max-width: 900px) {
+  .start-area {
+    grid-template-columns: 1fr;
+  }
+  .options {
+    grid-template-columns: 1fr;
+  }
+}
+@media print {
+  body {
+    background: white;
+    color: #001;
+  }
+  .app > *:not(.cert) {
+    display: none;
+  }
+  .cert {
+    display: block;
+  }
+}
