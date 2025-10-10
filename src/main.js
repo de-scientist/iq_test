@@ -195,3 +195,5 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
     //add a function to deal with submitting a section when time is over
      function submitSection(){ clearInterval(state.timerInterval); const next = state.currentSectionIndex+1; if(next<state.sections.length){ gotoSection(next); } else { finishTest(); } }
 
+//display the finish state 
+    function finishTest(){ state.started=false; quiz.style.display='none'; resultsEl.style.display='block'; status.textContent='Completed'; computeResults(); }
