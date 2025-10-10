@@ -227,3 +227,9 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
          // reshuffle and restart
         resultsEl.style.display='none'; setup.style.display='block'; status.textContent='Not started'; stratifiedShuffleQuestions(); }
     }
+
+    //build the csv
+     function buildCSV(raw,iq){ const rows=[]; rows.push(['QuestionID','Section','Question','ChosenOptionIndex','ChosenOptionLabel','CorrectIndex','CorrectLabel','Difficulty','Explanation'].join(',')); for(const sec of state.sections){ const order = state.orderMap[sec.name]; for(let i=0;i<order.length;i++){ const qid=order[i]; const q=QUESTIONS.find(x=>x.id===qid); const chosen = state.answers[q.id]; const chosenLabel = chosen===undefined? '': `${String.fromCharCode(65+chosen)}. ${q.opts[chosen]}`; const correctLabel = `${String.fromCharCode(65+q.a)}. ${q.opts[q.a]}`; // escape commas and quotes
+          const esc = s=>('"'+String(s).replace(/"/g,'""')+'"'); rows.push([q.id,q.section,esc(q.q),(chosen===undefined?'':chosen),esc(chosenLabel),q.a,esc(correctLabel),q.difficulty,esc(q.expl)].join(',')); } }
+      rows.push(['RawScore',raw,'CalibratedIQ',iq].join(',')); return rows.join('
+'); }
