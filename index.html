@@ -118,15 +118,6 @@
        - printable certificate via window.print()
     */
 
-
-   
-
-
-  
-   
-
-
-    function computeResults(){ let correctCount=0; const perSectionScores={}; for(const sec of state.sections){ let sCorrect=0; for(const q of sec.questions){ const chosen = state.answers[q.id]; if(chosen===q.a){ correctCount++; sCorrect++; } } perSectionScores[sec.name]={correct:sCorrect,total:sec.questions.length}; }
       // Calibration using binomial model (p=0.5 assumed average chance)
       const raw = correctCount; const N = QUESTIONS.length; const p = 0.5; const meanRaw = N*p; const sdRaw = Math.sqrt(N*p*(1-p)); const z = (raw - meanRaw) / sdRaw; const iq = Math.round(100 + 15*z);
 

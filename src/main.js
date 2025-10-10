@@ -197,3 +197,6 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
 
 //display the finish state 
     function finishTest(){ state.started=false; quiz.style.display='none'; resultsEl.style.display='block'; status.textContent='Completed'; computeResults(); }
+
+//compute results
+       function computeResults(){ let correctCount=0; const perSectionScores={}; for(const sec of state.sections){ let sCorrect=0; for(const q of sec.questions){ const chosen = state.answers[q.id]; if(chosen===q.a){ correctCount++; sCorrect++; } } perSectionScores[sec.name]={correct:sCorrect,total:sec.questions.length}; }
