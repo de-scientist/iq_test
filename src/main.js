@@ -166,7 +166,6 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
 // add a timer display add a function that generates remaining time
          function updateTimerDisplay(){ const m = Math.floor(state.remaining/60).toString().padStart(2,'0'); const s = (state.remaining%60).toString().padStart(2,'0'); timerEl.textContent = `${m}:${s}`; }
 
-
 //add and append html elements
     function renderQuestion(qIndex){
       const sec = state.sections[state.currentSectionIndex];
@@ -187,3 +186,8 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
       nextBtn.onclick = ()=>{ const ni=Math.min(sec.questions.length-1,qIndex+1); renderQuestion(ni); }
       submitSectionBtn.onclick = ()=>{ submitSection(); }
     }
+
+//add a function to update the progress bar
+      function selectOption(qid, idx){ state.answers[qid]=idx; }
+    function updateProgressBar(){ const total=QUESTIONS.length; let done=0; for(const id in state.answers) done++; const pct=Math.round((done/total)*100); progBar.style.width=pct+'%'; }
+    function autoSubmitSection(){ alert('Time is up for this section. Submitting and moving to next.'); submitSection(); }
