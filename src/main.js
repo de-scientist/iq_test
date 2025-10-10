@@ -9,8 +9,7 @@ function shuffle(arr){
       QUESTIONS.push({id:QUESTIONS.length+1, section, q, opts, a, difficulty, expl});
     }
 
-
-    //(I've added explanations and difficulties for each question.)
+//(I've added explanations and difficulties for each question.)
     // SECTION Logic
     const S1='Logic';
     qpush(S1,'Which number completes the sequence? 2, 4, 8, 16, ?',['18','20','24','32'],3,'E','Powers of two; next is 32.');
