@@ -143,3 +143,9 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
 
    // interleave: M,H,E to create mix, or simple concat M,H,E then shuffle again lightly
         const mixed = [].concat(med.slice(0,5), hard.slice(0,5), easy.slice(0,5));
+
+   // check if fewer than 15 in each, fill from remaining
+        if(mixed.length<sec.questions.length){
+          const rest = sec.questions.filter(q=>!mixed.includes(q));
+          shuffle(rest); mixed.push(...rest);
+        }

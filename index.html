@@ -119,12 +119,6 @@
     */
 
    
-       
-        // if fewer than 15 in each, fill from remaining
-        if(mixed.length<sec.questions.length){
-          const rest = sec.questions.filter(q=>!mixed.includes(q));
-          shuffle(rest); mixed.push(...rest);
-        }
         // final mild shuffle to avoid patterns but preserve difficulty spread
         for(let i=0;i<3;i++){ shuffle(mixed); }
         state.orderMap[sec.name] = mixed.map(q=>q.id);
