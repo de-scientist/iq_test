@@ -191,3 +191,7 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
       function selectOption(qid, idx){ state.answers[qid]=idx; }
     function updateProgressBar(){ const total=QUESTIONS.length; let done=0; for(const id in state.answers) done++; const pct=Math.round((done/total)*100); progBar.style.width=pct+'%'; }
     function autoSubmitSection(){ alert('Time is up for this section. Submitting and moving to next.'); submitSection(); }
+
+    //add a function to deal with submitting a section when time is over
+     function submitSection(){ clearInterval(state.timerInterval); const next = state.currentSectionIndex+1; if(next<state.sections.length){ gotoSection(next); } else { finishTest(); } }
+

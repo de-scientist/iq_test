@@ -123,7 +123,7 @@
 
 
   
-    function submitSection(){ clearInterval(state.timerInterval); const next = state.currentSectionIndex+1; if(next<state.sections.length){ gotoSection(next); } else { finishTest(); } }
+   
 
     function finishTest(){ state.started=false; quiz.style.display='none'; resultsEl.style.display='block'; status.textContent='Completed'; computeResults(); }
 
