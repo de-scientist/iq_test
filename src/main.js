@@ -243,3 +243,13 @@ function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textConten
     // add initial preview
     function initialPreview(){ secIndex.textContent='—'; secName.textContent='Preview'; secDesc.textContent='Pick timings and start.'; }
     initialPreview();
+
+
+
+      /* Features worked and working on:
+       - difficulty field and explanation per question
+       - randomization within sections (stratified by difficulty)
+       - calibrated IQ using binomial mean/sd
+       - CSV export
+       - printable certificate via window.print()
+    */
