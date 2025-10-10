@@ -131,3 +131,12 @@ function shuffle(arr){
 // add an update estimate on the state
 function updateEstimate(){ const mins=parseInt(timeSelect.value); est.textContent = mins*state.sections.length; }
     timeSelect.addEventListener('change', updateEstimate); updateEstimate();
+
+ // Stratified shuffle: keep difficulty mix by shuffling then grouping easy/medium/hard
+    function stratifiedShuffleQuestions(){
+      state.orderMap = {};
+      for(const sec of state.sections){
+        const easy = sec.questions.filter(q=>q.difficulty==='E');
+        const med = sec.questions.filter(q=>q.difficulty==='M');
+        const hard = sec.questions.filter(q=>q.difficulty==='H');
+        shuffle(easy); shuffle(med); shuffle(hard);
