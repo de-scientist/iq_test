@@ -118,16 +118,6 @@
        - printable certificate via window.print()
     */
 
-   
-    // STATE
-    let state={perSectionMinutes:15,currentSectionIndex:0,sections:[],answers:{},timerInterval:null,remaining:0,started:false,orderMap:{}};
-
-    function buildSections(){
-      const map={};
-      for(const qq of QUESTIONS){ if(!map[qq.section]) map[qq.section]=[]; map[qq.section].push(qq); }
-      state.sections = Object.keys(map).map(name=>({name, questions: map[name]}));
-    }
-    buildSections();
 
     // references
     const startBtn=document.getElementById('startBtn');

@@ -83,3 +83,14 @@ function shuffle(arr){
     qpush(S4,'Which figure is congruent to another (same size & shape)?',['Similar but scaled','Reflected','Rotated','All of above possibly'],3,'M','Congruence can include translation, rotation, reflection.');
     qpush(S4,'If a map scale 1:100, then 1 cm on map is how many meters?',['1 m','10 m','100 m','0.1 m'],1,'E','1:100 means 1 cm = 100 cm = 1 m? Wait: mapping: 1:100 means 1 unit on map =100 units real; 1 cm -> 100 cm = 1 m.');
     qpush(S4,'If a regular hexagon, interior angle is?',['120°','90°','135°','150°'],0,'M','Interior angle = 120° for regular hexagon.');
+
+
+ // add a function state to start timer
+    let state={perSectionMinutes:15,currentSectionIndex:0,sections:[],answers:{},timerInterval:null,remaining:0,started:false,orderMap:{}};
+
+    function buildSections(){
+      const map={};
+      for(const qq of QUESTIONS){ if(!map[qq.section]) map[qq.section]=[]; map[qq.section].push(qq); }
+      state.sections = Object.keys(map).map(name=>({name, questions: map[name]}));
+    }
+    buildSections();
